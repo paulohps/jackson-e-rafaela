@@ -3,7 +3,9 @@
 namespace App\Livewire\Site;
 
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Support\RawJs;
 use Livewire\Component;
 use Illuminate\Contracts\View\View;
 use Filament\Forms\Contracts\HasForms;
@@ -26,7 +28,23 @@ class Invite extends Component implements HasForms
     {
         return $form
             ->schema([
-                Repeater::make('')
+                Repeater::make('presences')
+                    ->label('Pessoas')
+                    ->columns(2)
+                    ->addActionLabel('Adicionar pessoa')
+                    ->orderColumn(false)
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Nome')
+                            ->required(),
+                        TextInput::make('phone')
+                            ->label('Whatsapp')
+                            ->mask(RawJs::make(
+                                <<<'JS'
+                                    $input.length >= 14 ? '(99) 99999-9999' : '(99) 9999-9999'
+                                JS
+                            ))
+                    ])
             ])
             ->statePath('data');
     }

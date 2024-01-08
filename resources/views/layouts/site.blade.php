@@ -11,11 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Montserrat:wght@100;300;500;700;900&display=swap" rel="stylesheet">
 
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
+    @filamentStyles
     @vite('resources/assets/css/site/index.css')
 </head>
-<body>
+<body class="antialiased">
     {{ $slot }}
 
+    @filamentScripts
     @vite('resources/assets/js/site/index.js')
 </body>
 </html>

@@ -30,7 +30,7 @@
         <div
             x-show="open"
             @click.outside="open = false"
-            class="motion-safe:ease-out duration-100 flex flex-col space-y-2 bg-white p-4 rounded w-[95%] lg:w-1/3 lg:max-w-[700px]"
+            class="motion-safe:ease-out duration-100 flex flex-col space-y-2 bg-white p-4 rounded w-[95%] lg:w-2/3 max-h-[90%] overflow-y-auto lg:max-w-[700px]"
             x-transition:enter-start="opacity-0 scale-90"
             x-transition:enter-end="opacity-100 scale-100"
             x-transition:leave-start="opacity-100 scale-100"
@@ -45,17 +45,13 @@
             <form wire:submit="create">
                 {{ $this->form }}
 
-                <button type="submit">
-                    Submit
-                </button>
+                <hr>
+
+                <div class="flex justify-between">
+                    <button @click.prevent="open = false">Cancelar</button>
+                    <button>Confirmar</button>
+                </div>
             </form>
-
-            <hr>
-
-            <div class="flex justify-between">
-                <button @click.prevent="open = false">Cancelar</button>
-                <button>Confirmar</button>
-            </div>
         </div>
     </div>
 </div>
