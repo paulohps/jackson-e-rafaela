@@ -3,7 +3,7 @@
 namespace App\Providers\Filament;
 
 use Filament\Support\Colors\Color;
-use Filament\{Pages, Panel, PanelProvider, Widgets};
+use Filament\{Panel, PanelProvider, Widgets};
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -23,11 +23,14 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->brandName(config('app.name'))
+            ->brandLogo(vite_asset('images/brand-primary.png'))
+            ->darkModeBrandLogo(vite_asset('images/brand-white.png'))
+            ->brandLogoHeight('2.8rem')
+            ->favicon(vite_asset('images/brand-black.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages([
-                Pages\Dashboard::class,
-            ])
+            ->pages([])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,

@@ -1,6 +1,6 @@
 {
   "resources/assets/css/site/index.css": {
-    "file": "assets/index-wQ3qjgLA.css",
+    "file": "assets/index-407Jig57.css",
     "isEntry": true,
     "src": "resources/assets/css/site/index.css"
   },
@@ -11,6 +11,10 @@
   "resources/assets/images/brand-primary.png": {
     "file": "assets/brand-primary-1ZDHdenX.png",
     "src": "resources/assets/images/brand-primary.png"
+  },
+  "resources/assets/images/brand-white.png": {
+    "file": "assets/brand-white-mjEZ5awc.png",
+    "src": "resources/assets/images/brand-white.png"
   },
   "resources/assets/images/home-details.png": {
     "file": "assets/home-details-snzv3Lse.png",
