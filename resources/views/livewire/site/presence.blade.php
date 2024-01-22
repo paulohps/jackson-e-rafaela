@@ -9,7 +9,7 @@
     {{ $this->form }}
 
     <div class="flex justify-center">
-        <button class="btn btn-lg px-10 btn-green">
+        <button class="btn btn-lg px-10 btn-primary">
             <x-heroicon-o-check class="w-6 h-6 mr-2" />
             Confirmar
         </button>

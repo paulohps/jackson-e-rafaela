@@ -25,8 +25,6 @@ const initCountdown = () => {
 
         countdown.classList.remove('hidden')
         countdown.classList.add('flex')
-
-        console.log(days, hours, minutes, seconds)
     })
 }
 

@@ -21,7 +21,7 @@
     @vite('resources/assets/css/site/index.css')
 </head>
 <body class="antialiased pt-16 bg-primary-50 font-montserrat font-light text-primary-900">
-    <nav class="fixed top-0 left-0 h-16 w-full bg-gradient-to-b from-primary-300 to-primary-200">
+    <nav class="fixed z-10 top-0 left-0 h-16 w-full bg-gradient-to-b from-primary-300 to-primary-200">
         <div x-data="{open: false}" class="container h-full flex justify-between items-center text-primary-950">
             <a href="{{ route('site.home') }}">
                 <img class="h-12" src="{{ vite_asset('images/brand-primary.png') }}" alt="Logo Jackson e Rafaela">
