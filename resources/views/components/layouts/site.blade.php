@@ -36,22 +36,26 @@
                     <x-heroicon-o-home class="w-4 h-4 mr-1"/>
                     Início
                 </x-layouts.site.navbar-link>
-                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.invite') }}">
-                    <x-heroicon-o-ticket class="w-4 h-4 mr-1"/>
-                    Convite
-                </x-layouts.site.navbar-link>
-                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.my-presences') }}">
-                    <x-heroicon-o-check class="w-4 h-4 mr-1"/>
-                    Confirmar presença
-                </x-layouts.site.navbar-link>
-{{--                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.gift-list') }}">--}}
-{{--                    <x-heroicon-o-gift class="w-4 h-4 mr-1"/>--}}
-{{--                    Lista de presentes--}}
-{{--                </x-layouts.site.navbar-link>--}}
-{{--                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.accommodation') }}">--}}
-{{--                    <x-heroicon-o-building-office class="w-4 h-4 mr-1"/>--}}
-{{--                    Hospedagem--}}
-{{--                </x-layouts.site.navbar-link>--}}
+                @if($inviteUuid = session('invite'))
+                    <x-layouts.site.navbar-link wire:navigate href="{{ route('site.invite', $inviteUuid) }}">
+                        <x-heroicon-o-ticket class="w-4 h-4 mr-1"/>
+                        Convite
+                    </x-layouts.site.navbar-link>
+                @endif
+                @if($inviteUuid = session('presence'))
+                    <x-layouts.site.navbar-link wire:navigate href="{{ route('site.presence', $inviteUuid) }}">
+                        <x-heroicon-o-ticket class="w-4 h-4 mr-1"/>
+                        Confirmar Presença
+                    </x-layouts.site.navbar-link>
+                @endif
+                {{--                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.gift-list') }}">--}}
+                {{--                    <x-heroicon-o-gift class="w-4 h-4 mr-1"/>--}}
+                {{--                    Lista de presentes--}}
+                {{--                </x-layouts.site.navbar-link>--}}
+                {{--                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.accommodation') }}">--}}
+                {{--                    <x-heroicon-o-building-office class="w-4 h-4 mr-1"/>--}}
+                {{--                    Hospedagem--}}
+                {{--                </x-layouts.site.navbar-link>--}}
             </div>
         </div>
     </nav>
@@ -60,6 +64,7 @@
         {{ $slot }}
     </main>
 
+    @livewire('notifications')
 
     @filamentScripts
     @vite('resources/assets/js/site/index.js')

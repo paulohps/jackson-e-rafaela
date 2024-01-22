@@ -2,29 +2,33 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Invite extends Model
 {
+    use HasUuid;
     use HasFactory;
 
     protected $fillable = [
         'family_name',
         'phone',
         'people',
+        'answered_at'
     ];
 
     protected $casts = [
-        'people' => 'collection'
+        'people' => 'collection',
+        'answered_at' => 'datetime'
     ];
 
     public function phone(): Attribute
     {
         return Attribute::make(
             static fn($value) => mask($value, '(##) #####-####'),
-            static fn($value) => preg_replace('/[^0-9]/', '', $value)
+            static fn($value) => preg_replace('/\D/', '', $value)
         );
     }
 

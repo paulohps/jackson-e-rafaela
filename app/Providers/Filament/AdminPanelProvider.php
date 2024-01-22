@@ -3,7 +3,7 @@
 namespace App\Providers\Filament;
 
 use Filament\Support\Colors\Color;
-use Filament\{Panel, PanelProvider, Widgets};
+use Filament\{Navigation\NavigationItem, Panel, PanelProvider, Widgets};
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -32,6 +32,12 @@ class AdminPanelProvider extends PanelProvider
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+            ->navigationItems([
+                NavigationItem::make('Site')
+                    ->url('/', shouldOpenInNewTab: true)
+                    ->icon('heroicon-o-home')
+                    ->sort(100)
+            ])
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,

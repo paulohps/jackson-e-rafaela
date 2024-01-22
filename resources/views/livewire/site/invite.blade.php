@@ -15,7 +15,7 @@
         <img class="h-12 lg:h-20 fill-primary-900" src="{{ vite_asset('images/invite-flowers.png') }}" alt="Detalhe com flores">
 
         <div class="w-[96%] border-t-2 pt-4 lg:pt-8 border-primary-900 border-dashed">
-            <a href="{{ route('site.my-presences') }}">Confirmar Presença</a>
+            <a href="{{ route('site.presence', $invite) }}">Confirmar Presença</a>
         </div>
     </div>
 </div>
