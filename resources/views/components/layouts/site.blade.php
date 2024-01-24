@@ -11,6 +11,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700;900&family=Montserrat:wght@100;300;500;700;900&display=swap" rel="stylesheet">
 
+    <meta name="description" content="{{ $description = 'Site com informações do casamento de Jackson e Rafaela' }}">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jackson e Rafaela">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name=”twitter:image” content=”{{ vite_asset('images/home-jackson-rafaela.png') }}“>
+
+    <!-- Open Graph data -->
+    <meta property="og:locale" content="{{ config('app.locale', 'pt-br') }}">
+    <meta property="og:title" content="Jackson e Rafaela">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ vite_asset('images/home-jackson-rafaela.png') }}">
+    <meta property="og:image:alt" content="{{ $description }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+
+    @if (config('app.env') === 'production')
+        <meta name="robots" content="index, follow"/>
+    @else
+        <meta name="robots" content="noindex, nofollow">
+    @endif
+
     <style>
         [x-cloak] {
             display: none !important;
@@ -52,10 +76,10 @@
                 {{--                    <x-heroicon-o-gift class="w-4 h-4 mr-1"/>--}}
                 {{--                    Lista de presentes--}}
                 {{--                </x-layouts.site.navbar-link>--}}
-                {{--                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.accommodation') }}">--}}
-                {{--                    <x-heroicon-o-building-office class="w-4 h-4 mr-1"/>--}}
-                {{--                    Hospedagem--}}
-                {{--                </x-layouts.site.navbar-link>--}}
+                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.accommodation') }}">
+                    <x-heroicon-o-building-office class="w-4 h-4 mr-1"/>
+                    Hospedagem
+                </x-layouts.site.navbar-link>
             </div>
         </div>
     </nav>
