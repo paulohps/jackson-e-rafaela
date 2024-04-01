@@ -72,10 +72,10 @@
                         Confirmar Presença
                     </x-layouts.site.navbar-link>
                 @endif
-                {{--                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.gift-list') }}">--}}
-                {{--                    <x-heroicon-o-gift class="w-4 h-4 mr-1"/>--}}
-                {{--                    Lista de presentes--}}
-                {{--                </x-layouts.site.navbar-link>--}}
+                <x-layouts.site.navbar-link wire:navigate href="{{ route('site.gifts') }}">
+                    <x-heroicon-o-gift class="w-4 h-4 mr-1"/>
+                    Lista de presentes
+                </x-layouts.site.navbar-link>
                 <x-layouts.site.navbar-link wire:navigate href="{{ route('site.accommodation') }}">
                     <x-heroicon-o-building-office class="w-4 h-4 mr-1"/>
                     Hospedagem
