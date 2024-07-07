@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use App\Models\Traits\HasUuid;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * @property Collection $people
+ */
 class Invite extends Model
 {
     use HasUuid;
